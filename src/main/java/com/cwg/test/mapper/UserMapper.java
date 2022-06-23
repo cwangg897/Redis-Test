@@ -4,6 +4,7 @@ package com.cwg.test.mapper;
 import com.cwg.test.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
 import java.util.Optional;
 
 @Mapper
@@ -15,4 +16,6 @@ public interface UserMapper {
 
     boolean isExistUser(String id);
 
+
+    List<UserDto> findAll();
 }

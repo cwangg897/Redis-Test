@@ -25,6 +25,12 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // spring에서 redis에 대한 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    // spring에서 redis를 session storage로 사용하기 위한 의존성
+    implementation 'org.springframework.session:spring-session-data-redis'
+
 }
 
 tasks.named('test') {
