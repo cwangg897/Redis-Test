@@ -18,6 +18,12 @@
         SELECT EXISTS (SELECT id FROM USER WHERE id = #{id})
     </select>
 
+    <select id="findAll" resultType="com.cwg.test.dto.UserDto">
+        SELECT * FROM USER;
+    </select>
+
+
+
 
 
 

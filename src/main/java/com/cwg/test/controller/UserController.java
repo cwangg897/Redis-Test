@@ -4,6 +4,7 @@ import com.cwg.test.dto.UserDto;
 import com.cwg.test.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.servlet.server.Session;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -50,16 +52,20 @@ public class UserController {
         return REQUEST_OK;
     }
 
-    @PostMapping("/login2")
-    public String login2(String id, String password){
-        System.out.println(id + password);
-        return id + " " +password;
-    }
-
-
     @GetMapping("/stest")
     public String stest(HttpSession session){
         return (String)session.getAttribute("userId");
     }
+
+    @GetMapping("/getSessionId")
+    public String getSessionId(HttpSession session) {
+        return session.getId();
+    }
+
+    @GetMapping("/all")
+    public List<UserDto> findAll() {
+        return userService.findAll();
+    }
+
 
 }

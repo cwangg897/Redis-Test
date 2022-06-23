@@ -5,6 +5,7 @@ import com.cwg.test.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,5 +33,10 @@ public class UserServiceImpl implements UserService{
         }
         // 그런데 실제에서는 비밀번호가 유효하지않거나 아이디가 유효하지않은지 정확하게안알려준다. 그래서 비번만체크하기
 
+    }
+
+    @Override
+    public List<UserDto> findAll() {
+        return userMapper.findAll();
     }
 }

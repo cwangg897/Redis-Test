@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cwg.test.mapper.BoardMapper" >
+
+    <select id="findAllById" resultType="com.cwg.test.dto.BoardDto">
+        SELECT *
+        FROM BOARD
+        WHERE writer=#{id}
+    </select>
+
+    <insert id="createBoard" parameterType="com.cwg.test.dto.BoardDto">
+        INSERT INTO BOARD(title, writer)
+        VALUES (#{title}, #{writer})
+    </insert>
+
+
+
+
+
+
+
+</mapper>
